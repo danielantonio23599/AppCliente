@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         //settings.setUserLogOff(getBaseContext());
         //mostraDialog();
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
         userEmail = (EditText) findViewById(R.id.input_email);
         user_pwd = (EditText) findViewById(R.id.input_senha);
         buttonLogin = (Button) findViewById(R.id.btnLogin);
@@ -56,7 +57,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Todo Verificar credenciais e rodar SplashScreen
-                fazLogin(userEmail.getText() + "", user_pwd.getText() + "");
+                mudaActivity(MainActivity.class);
+               // fazLogin(userEmail.getText() + "", user_pwd.getText() + "");
                 //Com MD5: -> Cadastrar Adm com MD5
 //                fazLogin(userName.getText() + "", StringUtils.md5(user_pwd.getText() + ""));
 
@@ -69,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 tvSign_up.setPaintFlags(tvSign_up.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 tvSign_up.setTextColor(Color.BLUE);
-                mudaActivity(CadastroActivity.class);
+                mudaActivity(Cadastro2Activity.class);
 
             }
         });

@@ -57,5 +57,13 @@
         app:backgroundTint="@color/colorPrimary"
         app:layout_anchor="@id/app_bar_foto"
         app:layout_anchorGravity="bottom|end" />
+    <Button
+        android:id="@+id/btnSalvarDados"
+        android:layout_width="408dp"
+        android:layout_height="52dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/degrade_right"
+        android:text="Salvar"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

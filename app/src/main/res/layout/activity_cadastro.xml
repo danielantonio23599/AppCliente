@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@drawable/degrade_right"
+        android:background="@drawable/backgroud_botao"
         android:text="@string/next"
         android:textColor="@color/color_grey"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,7 +1,6 @@
 
 package com.daniel.appcliente;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,52 +10,53 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.daniel.appcliente.fragment.EnderecoFragment;
-import com.daniel.appcliente.fragment.PerfilFragment;
-import com.daniel.appcliente.navigation.SliderPagerAdapter;
-import com.google.android.material.tabs.TabLayout;
+import com.daniel.appcliente.fragment.cadastro.EmailFragment;
+import com.daniel.appcliente.fragment.cadastro.EnderecoFragment;
+import com.daniel.appcliente.fragment.cadastro.FotoFragment;
+import com.daniel.appcliente.fragment.cadastro.NomeFragment;
+import com.daniel.appcliente.fragment.cadastro.TelefoneFragment;
+import com.daniel.appcliente.adapter.navigation.SliderPagerAdapter;
 
 public class CadastroActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private Button button;
     private SliderPagerAdapter adapter;
+    private FotoFragment foto = new FotoFragment();
+    private EnderecoFragment endereco = new EnderecoFragment();
+    private NomeFragment nome = new NomeFragment();
+    private EmailFragment email = new EmailFragment();
+    private TelefoneFragment telefone = new TelefoneFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // making activity full screen
-        if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().getDecorView()
-                    .setSystemUiVisibility(
-                            View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        }
         setContentView(R.layout.activity_cadastro);
         // hide action bar you can use NoAction theme as well
        getSupportActionBar().hide();
         // bind views
+
         viewPager = findViewById(R.id.pagerIntroSlider);
-        TabLayout tabLayout = findViewById(R.id.tabs);
         button = findViewById(R.id.button);
         // init slider pager adapter
         adapter = new SliderPagerAdapter(getSupportFragmentManager(),
                 FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        adapter.add(new PerfilFragment(), "");
-        adapter.add(new EnderecoFragment(), "");
+        adapter.add( nome, "");
+        adapter.add(email, "");
+        adapter.add(telefone, "");
+        adapter.add(endereco, "");
+        adapter.add(foto, "");
         // set adapter
         viewPager.setAdapter(adapter);
         // set dot indicators
-        tabLayout.setupWithViewPager(viewPager);
-        // make status bar transparent
-        //changeStatusBarColor();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (viewPager.getCurrentItem() == 0) {
+                if (viewPager.getCurrentItem() < 4) {
                     viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
 
 
                 }
-                else if (viewPager.getCurrentItem() == 1) {
+                else if (viewPager.getCurrentItem() == 4) {
                     Toast.makeText(getApplicationContext(), "salvar", Toast.LENGTH_LONG).show();
 
                 }
@@ -87,11 +87,4 @@ public class CadastroActivity extends AppCompatActivity {
         });
     }
 
-   /* private void changeStatusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.TRANSPARENT);
-        }
-    }*/
 }

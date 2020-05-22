@@ -3,23 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_home"
+    tools:ignore="UnusedNavigation">
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.daniel.appcliente.ui.home.HomeFragment"
         android:label="@string/title_home"
+        android:name="com.daniel.appcliente.fragment.InicioFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.daniel.appcliente.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_busca"
+        android:name="com.daniel.appcliente.fragment.BuscarFragment"
+        android:label="@string/title_busca"
+        tools:layout="@layout/fragment_busca" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.daniel.appcliente.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_pedido"
+        android:label="@string/title_pedidos"
+        android:name="com.daniel.appcliente.fragment.PedidoFragment"
+        tools:layout="@layout/fragment_endereco" />
+
+    <fragment
+        android:id="@+id/navigation_perfil"
+        android:name="com.daniel.appcliente.fragment.PerfilFragment"
+        android:label="@string/title_pedidos"
+        tools:layout="@layout/content_perfil" />
 </navigation>

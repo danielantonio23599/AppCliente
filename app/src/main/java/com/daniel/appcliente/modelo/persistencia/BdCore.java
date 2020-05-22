@@ -35,7 +35,7 @@ public class BdCore extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase bd) {
         createTableIp(bd);
         createTableUsuario(bd);
-        createTableEmpresa(bd);
+        createTableEndereço(bd);
 
 
     }
@@ -57,32 +57,36 @@ public class BdCore extends SQLiteOpenHelper {
         String slqCreateTabela = "CREATE TABLE IF NOT EXISTS usuario(\n" +
                 "   usuCodigo INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 "   usuNome text,\n" +
+                "   usuEmail text,\n" +
+                "   usuProfissao text,\n" +
                 "   usuDataNascimento text,\n" +
+                "   usuDataCadastro text,\n" +
+                "   usuCpf text,\n" +
                 "   usuTelefone text,\n" +
                 "   usuFoto longblob,\n" +
-                "   usuEmail text,\n" +
-                "   usuCpf text,\n" +
-                "   usuRg text,\n" +
-                "   usuSenha text,\n" +
-                "   usuLogradouro text,\n" +
-                "   usuBairro text,\n" +
-                "   usuComplemento text,\n" +
-                "   usuNumero text,\n" +
-                "   usuCidade text,\n" +
-                "   usuUf text,\n" +
-                "   usuCep text);";
+                "   usuSenha text\n" +
+                ");";
         // Executa a query passada como parametro
         bd.execSQL(slqCreateTabela);
     }
 
-    public void createTableEmpresa(SQLiteDatabase bd) {
-        String slqCreateTabela = "CREATE TABLE IF NOT EXISTS empresa(\n" +
-                "  empCodigo INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
-                "  empEmail text,\n" +
-                "  empSenha text,\n" +
-                "  empFantazia text,\n" +
-                "  empLogo longblob);";
+    public void createTableEndereço(SQLiteDatabase bd) {
+        String slqCreateTabela = "CREATE TABLE IF NOT EXISTS endereco(\n" +
+                "   endCodigo INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "   endLogradouro text,\n" +
+                "   endBairro text,\n" +
+                "   endComplemento text,\n" +
+                "   endNumero text,\n" +
+                "   endCidade text,\n" +
+                "   endUf text,\n" +
+                "   endCep text,\n" +
+                "   endLatitude float,\n" +
+                "   endLongitude float,\n" +
+                "   end_usuCodigo INTEGER \n," +
+                "    FOREIGN KEY (end_usuCodigo)\n" +
+                "       REFERENCES usuario (end_usuCodigo));";
         // Executa a query passada como parametro
         bd.execSQL(slqCreateTabela);
     }
+
 }

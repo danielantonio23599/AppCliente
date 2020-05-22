@@ -28,10 +28,14 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha01'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //gps
+    //noinspection GradleCompatible
+    implementation 'com.google.android.gms:play-services-maps:11.6.2'
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'androidx.cardview:cardview:1.0.0'
@@ -60,10 +64,18 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.6.2'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //noinspection GradleCompatible
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     //LIRARY PARA CORTE DE IMAGENS
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
     //LIBRARY PARA IMAGEM CIRCULAR
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    //porcentagem de layout
+    //noinspection GradleCompatible
+    compile 'com.android.support:percent:23.1.1'
+    //sms
+    implementation 'com.google.android.gms:play-services-auth-api-phone:16.0.0'
 }
